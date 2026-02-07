@@ -27,7 +27,7 @@ This project is designed for **educational purposes and authorized security test
 - **Programming Language:** Python  
 - **Libraries:** Requests, BeautifulSoup  
 - **Web Framework:** Flask  
-- **Frontend:** HTML, Bootstrap  
+- **Frontend:** HTML,CSS 
 - **Reporting Format:** JSON  
 
 ---
