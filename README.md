@@ -3,8 +3,6 @@
 
 A Python-based **Web Application Vulnerability Scanner** that detects common **OWASP Top 10** security issues in web applications and presents results through an interactive **Flask dashboard**.
 
-This project is designed for **educational purposes and authorized security testing only**.
-
 ---
 
 ## Features
