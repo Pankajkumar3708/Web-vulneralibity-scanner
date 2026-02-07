@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Vulnerability Scanner</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e5e7eb;
+        }
+
+        .card {
+            background-color: #020617;
+            border-radius: 14px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+        }
+
+        .badge-high {
+            background-color: #dc2626;
+        }
+
+        .badge-medium {
+            background-color: #f59e0b;
+            color: #000;
+        }
+
+        pre {
+            background-color: #020617;
+            color: #22c55e;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .table {
+            margin-top: 15px;
+        }
+
+        h2, h4 {
+            color: #38bdf8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <!-- Header -->
+    <h2 class="text-center mb-4">
+        🔐 Web Application Vulnerability Scanner
+    </h2>
+
+    <!-- Scan Form -->
+    <div class="card p-4 mb-4">
+        <form method="POST">
+            <div class="input-group">
+                <input 
+                    type="url" 
+                    name="url" 
+                    class="form-control" 
+                    placeholder="http://testphp.vulnweb.com" 
+                    required
+                >
+                <button class="btn btn-danger" type="submit">
+                    Scan
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Results -->
+    {% if results %}
+    <div class="card p-4">
+
+        <h4>📊 Scan Summary</h4>
+        <p><strong>Target URL:</strong> {{ results.url }}</p>
+
+        <div class="table-responsive">
+            <table class="table table-dark table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>Vulnerability</th>
+                        <th>Detected Count</th>
+                        <th>Severity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SQL Injection</td>
+                        <td>{{ results.sql_injection | length }}</td>
+                        <td><span class="badge badge-high">HIGH</span></td>
+                    </tr>
+                    <tr>
+                        <td>Cross-Site Scripting (XSS)</td>
+                        <td>{{ results.xss | length }}</td>
+                        <td><span class="badge badge-high">HIGH</span></td>
+                    </tr>
+                    <tr>
+                        <td>Cross-Site Request Forgery (CSRF)</td>
+                        <td>{{ results.csrf | length }}</td>
+                        <td><span class="badge badge-medium">MEDIUM</span></td>
+                    </tr>
+                    <tr>
+                        <td>Missing Security Headers</td>
+                        <td>{{ results.missing_headers | length }}</td>
+                        <td><span class="badge badge-medium">MEDIUM</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Raw JSON -->
+        <h4 class="mt-4">🧾 Raw Scan Output</h4>
+        <pre>{{ results | tojson(indent=4) }}</pre>
+
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

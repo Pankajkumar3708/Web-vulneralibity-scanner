@@ -1,0 +1,13 @@
+{
+    "url": "https://www.google.com",
+    "sql_injection": [],
+    "xss": [],
+    "csrf": [
+        "/search"
+    ],
+    "missing_headers": [
+        "Content-Security-Policy",
+        "Strict-Transport-Security",
+        "X-Content-Type-Options"
+    ]
+}
