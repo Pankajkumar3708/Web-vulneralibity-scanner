@@ -1,5 +1,5 @@
 
-# 🔐 Web Application Vulnerability Scanner
+# Web Application Vulnerability Scanner
 
 A Python-based **Web Application Vulnerability Scanner** that detects common **OWASP Top 10** security issues in web applications and presents results through an interactive **Flask dashboard**.
 
@@ -7,7 +7,7 @@ This project is designed for **educational purposes and authorized security test
 
 ---
 
-## 🚀 Features
+## Features
 
 - Scans target URLs for common web vulnerabilities
 - Detects:
@@ -22,7 +22,7 @@ This project is designed for **educational purposes and authorized security test
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Programming Language:** Python  
 - **Libraries:** Requests, BeautifulSoup  
